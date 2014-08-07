@@ -103,7 +103,7 @@ func_highlight_full(grn_ctx *ctx, GNUC_UNUSED int nargs, GNUC_UNUSED grn_obj **a
                                 grn_ctx_at(ctx, GRN_DB_SHORT_TEXT),
                                 NULL);
 
-    if(GRN_TEXT_LEN(args[2])){
+    if (GRN_TEXT_LEN(args[2])) {
       grn_obj * normalizer;
       normalizer = grn_ctx_get(ctx, GRN_TEXT_VALUE(args[2]), GRN_TEXT_LEN(args[2]));
       //TODO: checks normalizer object
@@ -116,7 +116,7 @@ func_highlight_full(grn_ctx *ctx, GNUC_UNUSED int nargs, GNUC_UNUSED grn_obj **a
 
     tagged_len = GRN_TEXT_LEN(string);
 
-    for(i = 1; i <= n_tags; i++){
+    for (i = 1; i <= n_tags; i++) {
       grn_table_add(ctx, keywords,
                     GRN_TEXT_VALUE(args[i * 3]), GRN_TEXT_LEN(args[i * 3]), NULL);
 
