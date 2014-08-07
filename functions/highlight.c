@@ -32,8 +32,8 @@ grn_pat_tag_keys(grn_ctx *ctx,
                  grn_obj *keywords, unsigned int max_hits,
                  const char **open_tags, unsigned int *open_tag_lens,
                  const char **close_tags, unsigned int *close_tag_lens,
-                 unsigned int n_tags, grn_obj *result) {
-
+                 unsigned int n_tags, grn_obj *result)
+{
   grn_pat_scan_hit hits[max_hits];
   const char *rest;
 
@@ -67,7 +67,7 @@ grn_pat_tag_keys(grn_ctx *ctx,
       }
       previous = hits[i].offset + hits[i].length;
     }
-    if (string_length - previous > 0){
+    if (string_length - previous > 0) {
       GRN_TEXT_PUT(ctx, result,
                    string + previous, string_length - previous);
     }
