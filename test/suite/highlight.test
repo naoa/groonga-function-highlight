@@ -1,0 +1,14 @@
+register functions/highlight
+
+table_create Entries TABLE_NO_KEY
+column_create Entries body COLUMN_SCALAR ShortText
+
+load --table Entries
+[
+{"body": "This is test strings. Mroonga is a ＭｙＳＱＬ storage engine based on Ｇｒｏｏｎｇａ. Rroonga is a Ruby binding of Groonga."}
+]
+
+select Entries --output_columns \
+       'highlight_full(body, 8192, "NormalizerAuto", \
+        "Groonga", "<span class=\\"keyword1\\">", "</span>", \
+        "mroonga", "<span class=\\"keyword2\\">", "</span>")' --command_version 2
